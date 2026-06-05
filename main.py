@@ -26,6 +26,7 @@ def constact():
         data = request.json
         name = data.get("name")
         email = data.get("email")
+        phone = data.get("phone")
         message = data.get("message")
         subject = data.get("subject")
 
@@ -33,7 +34,7 @@ def constact():
             return ({"success":False, "message":"Email is required"}, 400)
         if collection.find_one({"email":data["email"]}):
 
-            mail_response = send_mail(email=email, name=name, subject=subject)
+            mail_response = send_mail(email=email, name=name, subject=subject,message=message,phone=phone)
             print(mail_response)
             if mail_response.get("status") == "successful":
 
