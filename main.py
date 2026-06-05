@@ -4,9 +4,11 @@ from pymongo import MongoClient
 from message.mail import send_mail
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+CORS(app)
 client = MongoClient(os.getenv('DB_URL'))
 db = client["portfolio"]
 collection = db["users"]
