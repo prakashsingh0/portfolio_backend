@@ -42,7 +42,7 @@ def constact():
         
         else:
             result = collection.insert_one(data)
-            mresponse = send_mail(email=email, name=name, subject=subject)
+            mresponse = send_mail(email=email, name=name, subject=subject,message=message, phone=phone)
             print(mresponse)
             if mresponse.get("status") == "successful":
 
