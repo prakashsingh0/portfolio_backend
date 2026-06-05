@@ -13,6 +13,11 @@ collection = db["users"]
 
 
 
+@app.route("/",methods=["GET"])
+def home():
+    return ({"message":"hello kshatreeya"})
+
+
 @app.route("/api/v1/contact",methods=["POST"])
 def constact():
     try:
